@@ -1,11 +1,18 @@
 SampleApp::Application.routes.draw do
-  get "static_pages/home"
+  get "users/new"
 
-  get "static_pages/help"
+  root to: 'static_pages#home'
 
-  get "static_pages/about"
+  match '/signup', to: 'users#new'
 
-  get "static_pages/contact"
+  match '/help', to: 'static_pages#help'
+  # match 'パス' => 'コントローラ名#アクション名'
+  # つまり、リクエストURLが/helpであれば、コントローラ名#アクション名　のアクションへ結びつけ、実行する。という意味か！
+  # 同時に、コントローラとビューで使用する名前付きルートを自動的に生成する。
+
+  match '/about', to: 'static_pages#about'
+
+  match '/contact', to: 'static_pages#contact'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
