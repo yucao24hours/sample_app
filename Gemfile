@@ -27,6 +27,7 @@ gem 'jquery-rails','2.0.2'
 
 group :test do
   gem 'capybara','1.1.2'
+  gem 'emoji_spec', :git => "https://gist.github.com/6112257.git"
 end
 
 group :production do
