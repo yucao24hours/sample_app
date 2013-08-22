@@ -1,3 +1,9 @@
+GIT
+  remote: https://gist.github.com/6112257.git
+  revision: 40b1704e6396748b1c3bf7d3a928adcd37933e3d
+  specs:
+    emoji_spec (0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -170,6 +176,7 @@ DEPENDENCIES
   coffee-rails (= 3.2.2)
   cucumber-rails (= 1.2.1)
   database_cleaner (= 0.7.0)
+  emoji_spec!
   factory_girl_rails (= 4.1.0)
   jquery-rails (= 2.0.2)
   pg (= 0.12.2)
