@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page] )
   end
 
   def new
@@ -49,15 +50,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-    def signed_in_user
-      unless signed_in?
-        # 未サインインの場合、サインイン後にまたこの場所に戻ってこられるよう、現在の位置を一時保管しておく
-        store_location
-        # そして、サインインページにリダイレクトさせる（このときflashを使って「Please sign in.」と表示させる
-        redirect_to signin_url, notice: "Please sign in."
-      end
-    end
 
     def correct_user
       @user = User.find(params[:id])

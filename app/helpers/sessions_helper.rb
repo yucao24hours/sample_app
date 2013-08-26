@@ -21,6 +21,15 @@ module SessionsHelper
     user == current_user
   end
 
+  def signed_in_user
+    unless signed_in?
+      # 未サインインの場合、サインイン後にまたこの場所に戻ってこられるよう、現在の位置を一時保管しておく
+      store_location
+      # そして、サインインページにリダイレクトさせる（このときflashを使って「Please sign in.」と表示させる
+      redirect_to signin_url, notice: "Please sign in."
+    end
+  end
+
   def sign_out
     self.current_user = nil
     cookies.delete(:remember_token)
